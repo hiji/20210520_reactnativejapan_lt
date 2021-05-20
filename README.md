@@ -1,6 +1,6 @@
 # これはなに？
 
-React Native Meetup #12 LT大会 の発表資料です。
+[React Native Meetup #12 LT大会](https://react-native-meetup.connpass.com/event/210587/) の発表資料です。
 
 [Slidev](https://github.com/slidevjs/slidev)を使って作成しています。
 
