@@ -1,9 +1,10 @@
 ---
 # try also 'default' to start simple
-theme: seriph
+theme: default
+# theme: seriph
 # random image from a curated Unsplash collection by Anthony
 # like them? see https://unsplash.com/collections/94734566/slidev
-background: https://source.unsplash.com/collection/94734566/1920x1080
+# background: https://source.unsplash.com/collection/94734566/1920x1080
 # apply any windi css classes to the current slide
 class: 'text-center'
 # https://sli.dev/custom/highlighters.html
@@ -16,308 +17,215 @@ info: |
   Learn more at [Sli.dev](https://sli.dev)
 ---
 
-# Welcome to Slidev
+# React NativeとExpoを<br>１ヶ月触ってみてわかったこと
 
-Presentation slides for developers
-
-<div class="pt-12">
-  <span @click="$slidev.nav.next" class="px-2 p-1 rounded cursor-pointer" hover="bg-white bg-opacity-10">
-    Press Space for next page <carbon:arrow-right class="inline"/>
-  </span>
-</div>
-
-<a href="https://github.com/slidevjs/slidev" target="_blank" alt="GitHub"
-  class="abs-br m-6 text-xl icon-btn opacity-50 !border-none !hover:text-white">
-  <carbon-logo-github />
-</a>
-
-<!--
-The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
--->
+ひじり（@hijiri408）
 
 ---
 
-# What is Slidev?
-
-Slidev is a slides maker and presenter designed for developers, consist of the following features
-
-- 📝 **Text-based** - focus on the content with Markdown, and then style them later
-- 🎨 **Themable** - theme can be shared and used with npm packages
-- 🧑‍💻 **Developer Friendly** - code highlighting, live coding with autocompletion
-- 🤹 **Interactive** - embedding Vue components to enhance your expressions
-- 🎥 **Recording** - built-in recording and camera view
-- 📤 **Portable** - export into PDF, PNGs, or even a hostable SPA
-- 🛠 **Hackable** - anything possible on a webpage
+# 自己紹介
 
 <br>
 <br>
 
-Read more about [Why Slidev?](https://sli.dev/guide/why)
-
-<!--
-You can have `style` tag in markdown to override the style for the current page.
-Learn more: https://sli.dev/guide/syntax#embedded-styles
--->
-
-<style>
-h1 {
-  background-color: #2B90B6;
-  background-image: linear-gradient(45deg, #4EC5D4 10%, #146b8c 20%);
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent; 
-  -moz-text-fill-color: transparent;
-}
-</style>
+- **名前** - ひじり
+- Javaでバックエンド開発を主にしています（していました）
+  - 昨年からフロントエンドの開発もやってます
+- 登壇は初ではないですが、LTは初です
 
 ---
 
-# Navigation
-
-Hover on the bottom-left corner to see the navigation's controls panel, [learn more](https://sli.dev/guide/navigation.html)
-
-### Keyboard Shortcuts
-
-|     |     |
-| --- | --- |
-| <kbd>right</kbd> / <kbd>space</kbd>| next animation or slide |
-| <kbd>left</kbd> | previous animation or slide |
-| <kbd>up</kbd> | previous slide |
-| <kbd>down</kbd> | next slide |
-
-<img
-  v-click
-  class="absolute -bottom-9 -left-7 w-80 opacity-50"
-  src="https://sli.dev/assets/arrow-bottom-left.svg"
-/>
-<p v-after class="absolute bottom-23 left-45 opacity-30 transform -rotate-10">Here!</p>
-
----
-layout: image-right
-image: https://source.unsplash.com/collection/94734566/1920x1080
----
-
-# Code
-
-Use code snippets and get the highlighting directly!
-
-```ts {all|2|1-6|9|all}
-interface User {
-  id: number
-  firstName: string
-  lastName: string
-  role: string
-}
-
-function updateUser(id: number, update: User) {
-  const user = getUser(id)
-  const newUser = {...user, ...update}  
-  saveUser(id, newUser)
-}
-```
-
-<arrow v-click="3" x1="400" y1="420" x2="230" y2="330" color="#564" width="3" arrowSize="1" />
-
----
-
-# Components
-
-<div grid="~ cols-2 gap-4">
-<div>
-
-You can use Vue components directly inside your slides.
-
-We have provided a few built-in components like `<Tweet/>` and `<Youtube/>` that you can use directly. And adding your custom components is also super easy.
-
-```html
-<Counter :count="10" />
-```
-
-<!-- ./components/Counter.vue -->
-<Counter :count="10" m="t-4" />
-
-Check out [the guides](https://sli.dev/builtin/components.html) for more.
-
-</div>
-<div>
-
-```html
-<Tweet id="1390115482657726468" />
-```
-
-<Tweet id="1390115482657726468" scale="0.65" />
-
-</div>
-</div>
-
-
----
-class: px-20
----
-
-# Themes
-
-Slidev comes with powerful theming support. Themes are able to provide styles, layouts, components, or even configurations for tools. Switching between themes by just **one edit** in your frontmatter:
-
-<div grid="~ cols-2 gap-2" m="-t-2">
-
-```yaml
----
-theme: default
----
-```
-
-```yaml
----
-theme: seriph
----
-```
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-default/01.png?raw=true">
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-seriph/01.png?raw=true">
-
-</div>
-
-Read more about [How to use a theme](https://sli.dev/themes/use.html) and
-check out the [Awesome Themes Gallery](https://sli.dev/themes/gallery.html).
-
----
-preload: false
----
-
-# Animations
-
-Animations are powered by [@vueuse/motion](https://motion.vueuse.org/).
-
-```html
-<div
-  v-motion
-  :initial="{ x: -80 }"
-  :enter="{ x: 0 }">
-  Slidev
-</div>
-```
-
-<div class="w-60 relative mt-6">
-  <div class="relative w-40 h-40">
-    <img
-      v-motion
-      :initial="{ x: 800, y: -100, scale: 1.5, rotate: -50 }"
-      :enter="final"
-      class="absolute top-0 left-0 right-0 bottom-0"
-      src="https://sli.dev/logo-square.png"
-    />
-    <img
-      v-motion
-      :initial="{ y: 500, x: -100, scale: 2 }"
-      :enter="final"
-      class="absolute top-0 left-0 right-0 bottom-0"
-      src="https://sli.dev/logo-circle.png"
-    />
-    <img
-      v-motion
-      :initial="{ x: 600, y: 400, scale: 2, rotate: 100 }"
-      :enter="final"
-      class="absolute top-0 left-0 right-0 bottom-0"
-      src="https://sli.dev/logo-triangle.png"
-    />
-  </div>
-
-  <div 
-    class="text-5xl absolute top-14 left-40 text-[#2B90B6] -z-1"
-    v-motion
-    :initial="{ x: -80, opacity: 0}"
-    :enter="{ x: 0, opacity: 1, transition: { delay: 2000, duration: 1000 } }">
-    Slidev
-  </div>
-</div>
-
-<!-- vue script setup scripts can be directly used in markdown, and will only affects current page -->
-<script setup lang="ts">
-const final = {
-  x: 0,
-  y: 0,
-  rotate: 0,
-  scale: 1,
-  transition: {
-    type: 'spring',
-    damping: 10,
-    stiffness: 20,
-    mass: 2
-  }
-}
-</script>
-
-<div
-  v-motion
-  :initial="{ x:35, y: 40, opacity: 0}"
-  :enter="{ y: 0, opacity: 1, transition: { delay: 3500 } }">
-
-[Learn More](https://sli.dev/guide/animations.html#motion)
-
-</div>
-
----
-
-# LaTeX
-
-LaTeX is supported out-of-box powered by [KaTeX](https://katex.org/).
+# 今日話すこと
 
 <br>
 
-Inline $\sqrt{3x-1}+(1+x)^2$
-
-Block
-$$
-\begin{array}{c}
-
-\nabla \times \vec{\mathbf{B}} -\, \frac1c\, \frac{\partial\vec{\mathbf{E}}}{\partial t} &
-= \frac{4\pi}{c}\vec{\mathbf{j}}    \nabla \cdot \vec{\mathbf{E}} & = 4 \pi \rho \\
-
-\nabla \times \vec{\mathbf{E}}\, +\, \frac1c\, \frac{\partial\vec{\mathbf{B}}}{\partial t} & = \vec{\mathbf{0}} \\
-
-\nabla \cdot \vec{\mathbf{B}} & = 0
-
-\end{array}
-$$
-
-<br>
-
-[Learn more](https://sli.dev/guide/syntax#latex)
+React経験者が初めてのアプリ開発にReact NativeとExpoを1ヶ月くらい使ってみて感じたこと
 
 ---
 
-# Diagrams
 
-You can create diagrams / graphs from textual descriptions, directly in your Markdown.
+# React NativeとExpoに触れるきっかけ
 
-<div class="grid grid-cols-2 gap-4 pt-4 -mb-6">
+<br>
+<br>
 
-```mermaid {scale: 0.9}
-sequenceDiagram
-    Alice->John: Hello John, how are you?
-    Note over Alice,John: A typical interaction
-```
+- お仕事でアプリ開発をすることになり、React NativeとExpoを使うことになった
+- そのときの自分の状態は↓
+  - アプリ開発経験は**無し**
+  - Reactの経験は1年（たまに触る）
 
-```mermaid {theme: 'neutral', scale: 0.8}
-graph TD
-B[Text] --> C{Decision}
-C -->|One| D[Result 1]
-C -->|Two| E[Result 2]
-```
+---
 
-</div>
+# 1ヶ月でやったこと
 
-[Learn More](https://sli.dev/guide/syntax.html#diagrams)
+<br>
+<br>
 
+- 会社の教材で学習する
+- React NativeやExpo、ライブラリのチュートリアルをやる & ドキュメントを読む
+- React Native Japanのハンズオンイベントに参加する
+- トライ＆エラーの繰り返し
 
 ---
 layout: center
 class: text-center
 ---
 
-# Learn More
+# 1ヶ月間いろいろとやってみてわかったこと
 
-[Documentations](https://sli.dev) / [GitHub Repo](https://github.com/slidevjs/slidev)
+---
+
+# Reactでの開発経験をそのまま活かせる
+
+<br>
+
+**当たり前だけどやっぱり一番インパクトがある**
+
+React Nativeでのコンポーネント開発にはReactの知識をそのまま活かせるため、楽に書くことができた。
+
+新しいことばかりで考えることもかなり多かったため、ある程度知っているものの上で開発できるというのは、気持ち的にもかなり楽だった。
+
+最初にアプリのコードを見た時は「あ、Reactだ」と思った。
+
+```ts
+export default function App() {
+  return (
+    <View style={styles.container}>
+      <Text>Open up App.tsx to start working on your app!</Text>
+      <StatusBar style="auto" />
+    </View>
+  );
+}
+```
+
+---
+
+# Reactで使っていたライブラリが使える（制限付き）
+
+<br>
+
+React QueryやFormikのようなReact用のライブラリを、React Nativeでも使うことができた。
+
+ただ、ブラウザ依存の機能が使われていると使えなかったり、何かしらの制限はあったりする。<br>React Nativeで使えるかどうかは、ドキュメントに記載があったり誰かがIssueで聞いていたりする。
+
+React Queryの場合だと以下のように「開発用ツールを除いてすぐに使える」 とドキュメントに記載があり、実際にまったく同じように使えたので、かなり助かった。
+
+> React Query is designed to work out of the box with React Native, with an exception to the devtools, which are only supported with React DOM at this time.
+
+Storybookなんかも使えるのかなと思って調べたりしたのだが、こちらは制限が多くてWebと同じようには使えなさそうだったので、踏み込むのはやめた。
+
+---
+
+# JavaScript(TypeScript)でライブラリのコードが読める
+
+<br>
+
+ライブラリについても、ネイティブのコンポーネントを使わない部分であればJavaScript（TypeScript）で書かれているため、気軽にコードを読むことができた。
+
+おかげで、ライブラリのバージョンアップ時にバグを踏んだ時にもすぐに原因を特定できるときがあり、プルリクエストを送ったりもできた。<br>（このときはreact-native-elementsをバージョンアップしたら表示が崩れた）
+
+---
+
+# Expoを使うと実機で簡単に確認できる
+
+<br>
+
+アプリ開発中に実機で確認するのってどうやるんだろうと思っていたら、Expoを使って簡単に確認することができて、体験がとても良かった。
+
+1. Expoで起動
+2. 表示されたQRコードを実機で読む（端末にはExpo Goをインストールしておく）
+3. Expo Goが起動されてJavaScriptなどをロードしてくれる
+4. 動作確認ができる
+
+（はじめて使ったときは思わず声が出た）
+
+---
+
+# Expoだと起動が速い（使わないと遅い）
+
+<br>
+
+自分の端末だとReact Native CLI（Expo無し）でiOS用にビルドすると30分くらいかかり、その間はマシンパワーが持っていかれて（ファンも全開）でほとんど作業できなくなってしまう。
+
+一度起動するとFast Refreshでコード変更を即時反映してくれるが、たまにうまくいかなかったり、ライブラリをいろいろと試しているときは使えなかったりした。
+
+それに比べると、Expoでの起動はかなり速く、検証時の効率がとてもよかった。
+
+---
+
+# Expoとライブラリのバージョン関係に気をつける
+
+<br>
+
+Expoではライブラリの最新バージョンに対応しているわけではないので、単純に最新版を入れると動かなくなったりもする。（実際にハマった）
+
+Expoのinstallコマンドを使うことで、使用しているExpoのバージョンと互換性のあるバージョンをインストールすることができるので、こちらを使うと余計なトラブルを避けられる。
+
+❌ ダメなときがある
+```
+npm install xxx
+```
+
+⭕️ こっちが確実
+```
+expo install xxx
+```
+
+ちなみに互換性がないバージョンを使っていると、Expo起動時に警告メッセージを出してくれる。
+
+---
+
+# エラーメッセージからの原因特定が難しい
+
+<br>
+
+動作確認中にエラーが発生するとエラーメッセージと該当箇所のコード情報（スタックトレース）が出力されるが、大体が自分で書いたコードではなく内部のコードとメッセージが表示されたりもして、読んでも何が原因なのかよく分からないことが多かった。
+
+がんばって読むしかない。
+
+---
+
+# バージョンアップがつらい
+
+<br>
+
+ExpoのBere Workflowで開発していたが、Expoをバージョンアップしたら次から次へとエラーが発生して、めちゃくちゃつらかった。
+
+Expoにはupgradeコマンドが用意されているがそれだけではうまく動かず、ググったりIssueを見ながらエラーを順番に解決していくことになった。（おかげでExpoの設定まわりについて理解は進んだが）
+
+React Native自体もまだバージョンアップで破壊的変更が普通に発生するようなので、バージョンアップするときはある程度の覚悟が必要になりそう。
+
+（バージョンアップがつらかったとき、色々なIssueで「バージョンアップしたら動かなくなった！」みたいなのが出てくるので、みんな大変なんだなぁと思うとちょっと気持ちが安らいだ）
+
+---
+
+# 日本語の情報はそれほど多くない（と感じた）
+
+<br>
+
+うまく動かないときやこういうのどう実現するんだろうと思って調べたりすると、解決の糸口になるのはリポジトリのIssueや海外の記事であることが多かった。
+
+---
+layout: center
+class: text-center
+---
+
+# まとめ
+
+---
+
+# まとめ
+
+<br>
+<br>
+
+- React経験者であれば、アプリ開発でReact Nativeはかなり魅力的な選択肢
+- Expoは便利だったので、使えない理由が無いなら使った方がいい
+- バージョンアップする時はがんばる
+
+---
+layout: center
+class: text-center
+---
+
+# ご清聴ありがとうございました
