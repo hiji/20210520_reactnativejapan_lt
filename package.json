@@ -8,7 +8,8 @@
   "dependencies": {
     "@slidev/cli": "^0.11.1",
     "@slidev/theme-default": "*",
-    "@slidev/theme-seriph": "*"
+    "@slidev/theme-seriph": "*",
+    "playwright-chromium": "^1.11.1"
   },
   "name": "20210520_reactnativejapan_lt"
 }
