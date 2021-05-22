@@ -104,7 +104,7 @@ export default function App() {
 
 <br>
 
-React QueryやFormikのようなReact用のライブラリを、React Nativeでも使うことができた。
+React QueryやReactHookFormのようなReact用のライブラリを、React Nativeでも使うことができた。
 
 ただ、ブラウザ依存の機能が使われていると使えなかったり、何かしらの制限はあったりする。<br>React Nativeで使えるかどうかは、ドキュメントに記載があったり誰かがIssueで聞いていたりする。
 
